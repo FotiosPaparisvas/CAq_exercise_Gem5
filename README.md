@@ -59,65 +59,120 @@
 
     * **InOrderCPU**: Ένα παλαιότερο μοντέλο που στοχεύει στη γενική προσομοίωση αγωγών εν σειρά με προσαρμόσιμα στάδια και μοντέλα πρόσβασης πόρων. Επιτρέπει στους ερευνητές να σχεδιάζουν και να προσομοιώνουν νέα δομικά στοιχεία αγωγών, καθιστώντας το χρήσιμο για πειραματισμούς, αν και δεν δίνεται τόσο μεγάλη έμφαση στις τελευταίες εκδόσεις του gem5  
 
-   Γράφουμε ένα απλό πρόγραμμα που υλοποιεί την ακολουθία Fibonnaci:
-   ```C
-   include <stdio.h>
+   1. Γράφουμε ένα απλό πρόγραμμα που υλοποιεί την ακολουθία Fibonnaci:
+      ```C
+      include <stdio.h>
 
-   int main(int argc, char* argv[]) {
+      int main(int argc, char* argv[]) {
 
-    int n = 20; // Predefined number of terms
-    int t1 = 0, t2 = 1, nextTerm = 0;
+      int n = 45; // Predefined number of terms
+      int t1 = 0, t2 = 1, nextTerm = 0;
 
-    for (int i = 2; i < n; ++i) {
-        nextTerm = t1 + t2;
-        t1 = t2;
-        t2 = nextTerm;
-    }
+        for (int i = 2; i < n; ++i) {
+            nextTerm = t1 + t2;
+            t1 = t2;
+            t2 = nextTerm;
+        }
 
-    // The last Fibonacci number is now in `nextTerm'
-    printf("\n%d\n", nextTerm);
+      // The last Fibonacci number is now in `nextTerm'
+      printf("\n%d\n", nextTerm);
 
 
-    return 0;
-   }
-   ```
-   Το οποίο το κάνουμε compile για ARM επεξεργαστή μέσω της εντολής:
-   >$ arm-linux-gnueabihf-gcc --static fibonacci.c -o fibonacci  
+      return 0;
+      }
+      ```
+      Το οποίο το κάνουμε compile για ARM επεξεργαστή μέσω της εντολής:
+      >$ arm-linux-gnueabihf-gcc --static fibonacci.c -o fibonacci  
 
-   και τρέχουμε τον gem5 με όρισμα το εκτελέσιμο αρχείο που παράχθηκε με την εντολή:
-   >/build/ARM/gem5.opt -d fibonacci_TimingSimpleCPU_result configs/example/se.py --cpu-type=CPU --caches -c fibonacci/fibonacci
+      και τρέχουμε τον gem5 με όρισμα το εκτελέσιμο αρχείο που παράχθηκε με την εντολή:
+      >/build/ARM/gem5.opt -d fibonacci_TimingSimpleCPU_result configs/example/se.py --cpu-type=CPU --caches -c fibonacci/fibonacci
 
-   όπου CPU, εκτελούμε μια φορά με MinorCPU και μια με TimingSimpleCPU.  
-   Τα αποτελέσματα που παίρνουμε στο stats.txt που αφορούν τους χρόνους τόσο της εξομοίωσης όσο και του εξωμοιούμενου προγράμματος είναι τα εξής:  
+      όπου CPU, εκτελούμε μια φορά με MinorCPU και μια με TimingSimpleCPU.  
+      Τα αποτελέσματα που παίρνουμε στο stats.txt που αφορούν τους χρόνους τόσο της εξομοίωσης όσο και του εξωμοιούμενου προγράμματος είναι τα εξής:  
 
-   ### MinorCPU
-   ```txt
-     METRIC
-   final_tick                                   34633000                       
-   host_inst_rate                                 239760                      
-   host_mem_usage                                 678756                       
-   host_op_rate                                   274466                       
-   host_seconds                                     0.04                      
-   host_tick_rate                              953025315                       
-   sim_freq                                 1000000000000                       
-   sim_insts                                        8691                       
-   sim_ops                                          9971                       
-   sim_seconds                                  0.000035                       
-   sim_ticks                                    34633000
-   ```
-   ### TimingSimpleCPU
-   ```txt
-   final_tick                                   39483000                       
-   host_inst_rate                                 769594                       
-   host_mem_usage                                 674144                       
-   host_op_rate                                   874061                      
-   host_seconds                                     0.01                       
-   host_tick_rate                             3495082824                       
-   sim_freq                                 1000000000000                       
-   sim_insts                                        8636                       
-   sim_ops                                          9864                       
-   sim_seconds                                  0.000039                      
-   sim_ticks                                    39483000
-   ```
-   * 
+      ### MinorCPU
+      ```txt
+      final_tick                                   34845000                       
+      host_inst_rate                                 237780                      
+      host_mem_usage                                 678752                       
+      host_op_rate                                   270950                       
+      host_seconds                                     0.04                      
+      host_tick_rate                              904929149                       
+      sim_freq                                1000000000000                       
+      sim_insts                                        9138                       
+      sim_ops                                         10430                       
+      sim_seconds                                  0.000035                       
+      sim_ticks                                    34845000
+      ```
+      ### TimingSimpleCPU
+      ```txt
+      final_tick                                   40247000                       
+      host_inst_rate                                 756329                       
+      host_mem_usage                                 674148                       
+      host_op_rate                                   855122                      
+      host_seconds                                     0.01                       
+      host_tick_rate                             3330713528                       
+      sim_freq                                1000000000000                       
+      sim_insts                                        9085                       
+      sim_ops                                         10323                       
+      sim_seconds                                  0.000040                      
+      sim_ticks                                    40247000
+      ```
+   2. Όπως μπορούμε να παρατηρήσουμε από τα παραπάνω αποτελέσματα η διαδικασία εξομοίωσης του προγράμματος στον host
+   διαρκεί περισσότερη ώρα στην περίπτωση του MinorCPU, σε σχέση με αυτή του TimingSimpleCPU το οποίο είναι λογικό αφού όπως αναφέραμε ο πρώτος είναι ένα πιο ρεαλιστικό και πιο περίπλοκο μοντέλο επεξεργαστή με περισσότερη υλοποιημένη λογική και πολυπλοκότητα.
+   Παρόμοια είναι και η εξήγηση για την διαφορά του ρυθμού εντολών και διεργασιών που εκτελόυνται στον host σε κάθε εξομοίωση.
+   Η χρήση της μνήμης στον host δεν διαφέρει κατα πολύ, αφού και στις δύο περιπτώσεις εξομοιώνουμε το ίδιο πρόγραμμα με τις ίδιες απαιτήσεις.
+   Αντίθετα, παρατηρόυμε από τα στοιχεία που αφορόυν το εξομοιούμενο πρόγραμμα ότι στην περίπτωση του MinorCPU, ολοκληρώνεται ταχύτερα παρα το ότι εκτελεί περισσότερες εντολές με την ίδια συχνότητα. Η εξήγηση αυτού είναι ότι λόγω του πιο ρεαλιστικόυ μοντέλου του MinorCPU έχει περισσότερες εντολές απο το ιδανικό σενάριο του TimingSimpleCPU και επιπλέον έχει την δυνατότητα για pipelining που κάνει το πρόγραμμα ταχύτερο.
+   
+   3. Παρατηρώντας το αρχείο stats.txt απο τις προηγούμενες προσομοιώσεις διαπιστώνουμε ότι το ρολόι των επεξεργαστών ήταν στα 2GHz:
+      ```
+      system.cpu_clk_domain.clock                       500
+      ```
+      Επομένως θα τρέξουμε το ίδιο πρόγραμμα με διαφορετικό ρολόι για να δούμε πως θα το επηρεάσει. Επιλέγουμε ρολόι στα 3Ghz. Συμφωνα με την βιβλιογραφία θα πρέπει να χρησιμοποιήσουμε στην εντολή που τρέχουμε, το flag:
+      >--cpu-clock=3GHz  
 
+      Δεν παρατηρόυμε κάποια σημαντική διαφόρα στα στοιχεία που προκύπτουν πέρα απο το χρόνο sim_ticks και επομένως sim_seconds:
+      ### MinorCPU 3GHz
+      ```
+      sim_seconds                                  0.000033 (0.000035-2GHz)                       
+      sim_ticks                                    33079554 (34845000-2GHz)
+      ```
+
+      ### TimingSimpleCPU 3GHz
+      ```
+      sim_seconds                                  0.000036 (0.000040-2GHz)                     
+      sim_ticks                                    35699265 (40247000-2GHz)
+      ```
+      Σύμφωνα με τα παραπάνω δεδομένα μπορούμε να δούμε ότι η αύξηση της συχνότητας του ρολογιού προφανώς δεν έχει γραμμικό αντίκτυπο στον χρόνο του προγράμματος και επίσης διαφέρει σε κάθε μοντέλο, με μεγαλύτερη επίδραση στο δεύτερο και πιο απλό TimingSimpleCPU. Αυτό συμβαίνει επειδή το απλότερο μοντέλο είναι ιδανικό και δεν έχει ρεαλιστικές καθυστερήσεις στο pipelining και στην μνήμη επομένως η συχνότητα επιδρά πιο άμεσα στο συνολικό χρόνο εκτέλεσης.
+
+      Παρατηρώντας το αρχείο config.dot από τις προηγούμενες προσομοιώσεις διαπιστώνουμε ότι ο τύπος της μνήμης ήταν DDR3_1600_8x8. Σύμφωνα με την βιβλιογραφία θα πρέπει να χρησιμοποιήσουμε στην εντολή που τρέχουμε, το flag:
+      >--mem-type=DDR4_2400_16x4
+
+      Επιλέγουμε αυτό τον τύπο επειδή σύμφωνα με την βιβλιογραφία έχει το μεγαλύτερο bandwidth.
+
+      Αντίστοιχα με πριν παρατηρούμε διαφορά σε δύο κυρίως μετρικές:
+      ### MinorCPU DDR4_2400_16x4
+      ```
+      sim_seconds                                  0.000034 (0.000035-2GHz)                      
+      sim_ticks                                    34113000 (34845000-2GHz)
+      ```
+
+      ### TimingSimpleCPU DDR4_2400_16x4
+      ```
+      sim_seconds                                  0.000040 (0.000040-2GHz)                      
+      sim_ticks                                    39874000 (40247000-2GHz)
+      ```
+      Στην περίπτωση με την μνήμη παρατηρούμε ότι η διαφορά που κάνει στο συγκεκριμένο πρόγραμμα είναι πολύ μικρή αλλά έχει μεγαλύτερη επίδραση στο μοντέλο του MinorCPU. Επειδή αυτό είναι πιο ρεαλιστικό στο κομμάτι της μνήμης και χρησιμοποιεί pipelining που επηρεάζεται από τις καθυστερήσεις μνήμης, η βελτίωση της έχει μεγαλύτερο αντίκτυπο. 
+
+
+
+
+
+
+
+
+mem types:https://nitish2112.github.io/post/gem5-memory-model/
+using se script: https://www.gem5.org/documentation/learning_gem5/part1/example_configs/
+SimpleCPU:https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU
+MinorCPU:https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu
+InOrderCPU:https://old.gem5.org/InOrder.html
