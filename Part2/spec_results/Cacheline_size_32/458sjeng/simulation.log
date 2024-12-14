@@ -1,0 +1,24 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov  7 2019 10:39:16
+gem5 started Dec 12 2024 23:03:39
+gem5 executing on ubuntu, pid 5203
+command line: ./build/ARM/gem5.opt -d spec_results/Cacheline_size_32/458sjeng configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --cacheline_size=32 -c spec_cpu2006/458.sjeng/src/specsjeng -o spec_cpu2006/458.sjeng/data/test.txt -I 100000000
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+info: Increasing stack size by one page.
+
+Sjeng version SPEC 1.0, Copyright (C) 2000-2005 Gian-Carlo Pascutto
+
+SPEC Workload
+Exiting @ tick 882685289500 because a thread reached the max instruction count

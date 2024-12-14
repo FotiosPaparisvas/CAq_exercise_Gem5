@@ -1,0 +1,21 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov  7 2019 10:39:16
+gem5 started Dec 12 2024 15:42:50
+gem5 executing on ubuntu, pid 8015
+command line: ./build/ARM/gem5.opt -d spec_results/3GHz/401bzip configs/example/se.py --cpu-type=MinorCPU --cpu-clock=3GHz --caches --l2cache -c spec_cpu2006/401.bzip2/src/specbzip -o 'spec_cpu2006/401.bzip2/data/input.program 10' -I 100000000
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+info: Increasing stack size by one page.
+spec_init
+Loading Input Data
+Duplicating 2415144 bytes
+Input data 10485760 bytes in length
+Compressing Input Data, level 5
+info: Increasing stack size by one page.
+Exiting @ tick 58384574649 because a thread reached the max instruction count

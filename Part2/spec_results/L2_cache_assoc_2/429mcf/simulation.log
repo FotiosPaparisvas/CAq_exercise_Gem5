@@ -1,0 +1,21 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov  7 2019 10:39:16
+gem5 started Dec 12 2024 22:33:27
+gem5 executing on ubuntu, pid 4736
+command line: ./build/ARM/gem5.opt -d spec_results/L2_cache_assoc_2/429mcf configs/example/se.py --cpu-type=MinorCPU --caches --l2cache --l2_assoc=2 -c spec_cpu2006/429.mcf/src/specmcf -o spec_cpu2006/429.mcf/data/inp.in -I 100000000
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+info: Increasing stack size by one page.
+
+MCF SPEC CPU2006 version 1.10
+Copyright (c) 1998-2000 Zuse Institut Berlin (ZIB)
+Copyright (c) 2000-2002 Andreas Loebel & ZIB
+Copyright (c) 2003-2005 Andreas Loebel
+
+Exiting @ tick 64959586500 because a thread reached the max instruction count

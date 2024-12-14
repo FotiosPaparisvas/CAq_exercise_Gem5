@@ -1,0 +1,11 @@
+Benchmarks	sim_seconds	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
+spec_results/Default/401bzip	0.083982	1.679650	0.014798	0.000077	0.282163
+spec_results/opt1/401bzip	0.063430	1.904813	0.018062	0.000077	0.316804
+spec_results/Default/429mcf	0.064955	1.299095	0.002108	0.023612	0.055046
+spec_results/opt1/429mcf	0.044391	1.333063	0.002493	0.023611	0.062942
+spec_results/Default/456hmmer	0.059396	1.187917	0.001637	0.000221	0.077760
+spec_results/opt1/456hmmer	0.039762	1.194062	0.002358	0.000221	0.054091
+spec_results/Default/458sjeng	0.513528	10.270554	0.121831	0.000020	0.999972
+spec_results/opt1/458sjeng	0.449947	13.511923	0.121833	0.000020	0.999948
+spec_results/Default/470lbm	0.174671	3.493415	0.060972	0.000094	0.999944
+spec_results/opt1/470lbm	0.146607	4.402604	0.060972	0.000094	0.999942

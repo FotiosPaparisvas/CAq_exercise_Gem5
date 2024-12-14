@@ -1,0 +1,16 @@
+Benchmarks	sim_seconds	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
+spec_results/L1_dcache_assoc_1/401bzip	0.085576	1.711521	0.017875	0.000077	0.231125
+spec_results/Default/401bzip	0.083982	1.679650	0.014798	0.000077	0.282163
+spec_results/L1_dcache_assoc_4/401bzip	0.083184	1.663677	0.013334	0.000077	0.315939
+spec_results/L1_dcache_assoc_1/429mcf	0.065048	1.300951	0.002816	0.023609	0.053669
+spec_results/Default/429mcf	0.064955	1.299095	0.002108	0.023612	0.055046
+spec_results/L1_dcache_assoc_4/429mcf	0.064933	1.298668	0.001970	0.023611	0.055307
+spec_results/L1_dcache_assoc_1/456hmmer	0.060575	1.211494	0.003394	0.000221	0.038446
+spec_results/Default/456hmmer	0.059396	1.187917	0.001637	0.000221	0.077760
+spec_results/L1_dcache_assoc_4/456hmmer	0.059387	1.187732	0.001587	0.000215	0.080373
+spec_results/L1_dcache_assoc_1/458sjeng	0.514501	10.290026	0.122393	0.000020	0.990849
+spec_results/Default/458sjeng	0.513528	10.270554	0.121831	0.000020	0.999972
+spec_results/L1_dcache_assoc_4/458sjeng	0.513526	10.270520	0.121831	0.000020	0.999978
+spec_results/L1_dcache_assoc_1/470lbm	0.175516	3.510325	0.061561	0.000094	0.986457
+spec_results/Default/470lbm	0.174671	3.493415	0.060972	0.000094	0.999944
+spec_results/L1_dcache_assoc_4/470lbm	0.174671	3.493415	0.060972	0.000094	0.999945

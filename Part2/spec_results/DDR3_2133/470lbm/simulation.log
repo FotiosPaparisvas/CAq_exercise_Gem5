@@ -1,0 +1,23 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov  7 2019 10:39:16
+gem5 started Dec 12 2024 16:30:17
+gem5 executing on ubuntu, pid 8742
+command line: ./build/ARM/gem5.opt -d spec_results/DDR3_2133/470lbm configs/example/se.py --cpu-type=MinorCPU --mem-type=DDR3_2133_8x8 --caches --l2cache -c spec_cpu2006/470.lbm/src/speclibm -o '20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of' -I 100000000
+
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+0: system.remote_gdb: listening for remote gdb on port 7000
+**** REAL SIMULATION ****
+info: Entering event queue @ 0.  Starting simulation...
+info: Increasing stack size by one page.
+MAIN_printInfo:
+	grid size      : 100 x 100 x 130 = 1.30 * 10^6 Cells
+	nTimeSteps     : 20
+	result file    : spec_cpu2006/470.lbm/data/lbm.in
+	action         : nothing
+	simulation type: channel flow
+	obstacle file  : spec_cpu2006/470.lbm/data/100_100_130_cf_a.of
+
+Exiting @ tick 171529648500 because a thread reached the max instruction count

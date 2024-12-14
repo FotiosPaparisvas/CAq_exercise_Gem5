@@ -1,0 +1,16 @@
+Benchmarks	sim_seconds	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
+spec_results/Cacheline_size_32/401bzip	0.092629	1.852581	0.018283	0.000087	0.427357
+spec_results/Default/401bzip	0.083982	1.679650	0.014798	0.000077	0.282163
+spec_results/Cacheline_size_128/401bzip	0.083329	1.666573	0.014359	0.000067	0.173845
+spec_results/Cacheline_size_32/429mcf	0.063004	1.260085	0.003208	0.013171	0.159189
+spec_results/Default/429mcf	0.064955	1.299095	0.002108	0.023612	0.055046
+spec_results/Cacheline_size_128/429mcf	0.066527	1.330534	0.001384	0.035212	0.020416
+spec_results/Cacheline_size_32/456hmmer	0.059842	1.196843	0.003134	0.000190	0.078314
+spec_results/Default/456hmmer	0.059396	1.187917	0.001637	0.000221	0.077760
+spec_results/Cacheline_size_128/456hmmer	0.059099	1.181978	0.000881	0.000345	0.072025
+spec_results/Cacheline_size_32/458sjeng	0.882685	17.653706	0.243654	0.000023	0.999988
+spec_results/Default/458sjeng	0.513528	10.270554	0.121831	0.000020	0.999972
+spec_results/Cacheline_size_128/458sjeng	0.339974	6.799471	0.060922	0.000015	0.999825
+spec_results/Cacheline_size_32/470lbm	0.280391	5.607827	0.121940	0.000085	0.999979
+spec_results/Default/470lbm	0.174671	3.493415	0.060972	0.000094	0.999944
+spec_results/Cacheline_size_128/470lbm	0.129065	2.581299	0.030487	0.000112	0.999799
